@@ -7,7 +7,7 @@ import googlelogo from "../../../assets/img/google.png";
 import applelogo from "../../../assets/img/apple.png";
 
 const styles =
-  "border border-gray-500 rounded-3xl flex justify-center items-center w-1/3 p-4";
+  "border border-gray-500 rounded-3xl flex justify-center items-center w-1/3 p-4 cursor-pointer";
 
 const AuthForm = ({
   title,
@@ -19,6 +19,7 @@ const AuthForm = ({
   moduleBody,
 }) => {
   const [value, setValue] = useState({ username: "", password: "" });
+  const [showPassword, setShowPassword] = useState(false);
   const changeHandler = (e) => {
     setValue({ ...value, [e.target.name]: e.target.value });
   };
@@ -31,7 +32,7 @@ const AuthForm = ({
         {`<`}
       </Link>
       <div className="flex flex-col gap-3">
-        <h2 className="font-medium text-xl">{title}</h2>
+        <h2 className="font-black text-xl flex justify-center ">{title}</h2>
         <MyInput
           name="username"
           value={value.username}
@@ -43,9 +44,11 @@ const AuthForm = ({
           value={value.password}
           changeHandler={changeHandler}
           placeholder={"Enter your password"}
-          type={"password"}
+          type={showPassword ? "text" : "password"}
+          showPassword={showPassword}
+          setShowPassword={setShowPassword}
         />
-      
+
         {moduleBody}
       </div>
       <div className="flex flex-col items-center gap-2">

@@ -9,12 +9,20 @@ import BodyItems from "./BodyItems";
 const LoginModule = () => {
   const navigate = useNavigate();
   const loginFunction= async(values)=>{
-    const res = await LoginApi(values);
-    console.log(res);
-    if (res.status == "200") {
-      setItem('token',res.data)
-      alert("successfully Logged in");
-      navigate("/images")
+    if(values.username == "" ||  values.password == "")
+      {
+        alert("Please enter a username and password");
+      }
+      else
+      {
+        const res = await LoginApi(values);
+        console.log(res);
+        if (res.status == "200") {
+          setItem('token',res.data)
+          alert("successfully Logged in");
+          navigate("/images")
+      }
+   
     }
 
   }

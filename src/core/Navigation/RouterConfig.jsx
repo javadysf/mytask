@@ -4,6 +4,7 @@ import Login from "../../screens/LoginPage";
 import Register from "../../screens/RegisterPage";
 import Layout from "../../components/Layout/Layout";
 import ImagesPage from "../../screens/ImagesPage";
+import ForgetPassword from "../../screens/ForgetPassword";
 
 const RouterConfig = () => {
   
@@ -22,6 +23,10 @@ const RouterConfig = () => {
          {
           path: "/register",
           element: <Register />,
+         },
+         {
+          path: "/forgetpassword",
+          element: <ForgetPassword />,
          },
        ],
     },

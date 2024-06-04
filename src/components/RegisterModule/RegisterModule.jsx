@@ -6,11 +6,17 @@ import BodyItems from "./BodyItems";
 const RegisterModule = () => {
   const navigate = useNavigate();
   const registerFunction= async(values)=>{
-    const res = await registerAPI(values);
-    console.log(res);
-    if (res.status == "201") {
-      alert("successfully registered")
-      navigate("/")
+    if(values.username == "" ||  values.password == "")
+      {
+        alert("Please enter a username and password");
+      }
+      else {
+        const res = await registerAPI(values);
+        console.log(res);
+        if (res.status == "201") {
+          alert("successfully registered")
+          navigate("/")
+      }
     }
 
   }
