@@ -79,7 +79,7 @@ const AuthForm = ({
             <img src={applelogo} />{" "}
           </span>
         </div>
-        <p>
+        <p className="text-xs">
           {description}{" "}
           <Link to={deslink} className="text-purple-900 font-medium">
             {linktitle}

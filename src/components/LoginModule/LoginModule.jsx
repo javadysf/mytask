@@ -3,33 +3,26 @@ import { LoginApi } from "../../core/Services/Api/Auth";
 import AuthForm from "../common/AuthForm/AuthForm";
 import { setItem } from "../../core/Services/common/storage.services";
 import BodyItems from "./BodyItems";
-
-
+import { toast } from "react-toastify";
 
 const LoginModule = () => {
   const navigate = useNavigate();
-  const loginFunction= async(values)=>{
-    if(values.username == "" ||  values.password == "")
-      {
-        alert("Please enter a username and password");
+  const loginFunction = async (values) => {
+    if (values.username == "" || values.password == "") {
+      toast.warning("Please enter a username and password");
+    } else {
+      const res = await LoginApi(values);
+      if (res.status == "200") {
+        setItem("token", res.data);
+        toast.success("wellcome..!");
+        navigate("/images");
       }
-      else
-      {
-        const res = await LoginApi(values);
-        console.log(res);
-        if (res.status == "200") {
-          setItem('token',res.data)
-          alert("successfully Logged in");
-          navigate("/images")
-      }
-   
     }
-
-  }
+  };
   return (
     <AuthForm
-    moduleBody={<BodyItems/>}
-    authFunc={loginFunction}
+      moduleBody={<BodyItems />}
+      authFunc={loginFunction}
       title={"Welcome back! Glad to see you, Again!"}
       actionname={"sign in"}
       description={"Don’t have an account?"}
