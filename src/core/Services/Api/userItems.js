@@ -1,13 +1,17 @@
-import { getItem } from "../common/storage.services";
+import { getItem, setItem } from "../common/storage.services";
 import axios from "../Interceptor/Interceptor";
+import { refreshToken } from "./Auth";
 const getUserItems = async() => {
   const Token = getItem("token").access;
-  console.log(Token);
-    try {
+      try {
       const result = await axios.get("/",{headers: {'Content-Type': 'application/json','Authorization': "Bearer " + Token }});
       return result;
     } catch (error) {
-        console.log(error);
+      if(error.response.status === 401)
+        {
+         await refreshToken();
+        }
+
       return [];
     }
   }

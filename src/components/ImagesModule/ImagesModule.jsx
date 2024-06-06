@@ -1,20 +1,23 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import Header from "../common/Header/Header"
 import ImagesSection from "./ImagesSection"
 import { getUserItems } from "../../core/Services/Api/userItems"
 
 const ImagesModule = () => {
+  const [images,setImages] = useState([])
   const userItems=async()=>{
     const res = await getUserItems();
-    console.log(res);
+    const data = await res.data;
+    setImages({data})
   }
   useEffect(()=>{
 userItems();
   },[])
+  console.log(images.data);
   return (
     <div >
         <Header/>
-        <ImagesSection/>
+        <ImagesSection images={images} />
     </div>
   )
 }
