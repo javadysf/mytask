@@ -1,4 +1,3 @@
-import { useState } from "react";
 import showIcon from "../../../assets/img/Icon.png"
 
 const MyInput = ({ placeholder, type,value,changeHandler,name,showPassword,setShowPassword }) => {

@@ -9,7 +9,9 @@ const getUserItems = async() => {
     } catch (error) {
       if(error.response.status === 401)
         {
+          // if the token was expired then try to refresh it!
          await refreshToken();
+         return;
         }
 
       return [];

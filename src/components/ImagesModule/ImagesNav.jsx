@@ -2,7 +2,7 @@ import HomeIcon from "../../assets/img/imageMenu/Home.png";
 import LibraryIcon from "../../assets/img/imageMenu/Library.png";
 import SearchIcon from "../../assets/img/imageMenu/Search.png";
 import ProfileIcon from "../../assets/img/imageMenu/Profile.png";
-const ImagesMenu = () => {
+const ImagesNav = () => {
   const menuOption = [
     {
       name: "Home",
@@ -32,4 +32,4 @@ const ImagesMenu = () => {
     </div>
   );
 };
-export default ImagesMenu;
+export default ImagesNav;

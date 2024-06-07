@@ -27,6 +27,7 @@ const refreshToken = async () => {
   const token = getItem("token");
      try {
       const response = await axios.post("/token/refresh/",refresh);
+      // set the refresh token to LS
       setItem("token",{...token,"access": response.data.access})
       return;
      } catch (error) {
