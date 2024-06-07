@@ -1,7 +1,6 @@
 import ImageFrame from "./ImageFrame"
-import ImagesMenu from "./ImagesMenu"
+import ImagesNav from "./ImagesNav"
 import {LoadingModule} from "../common/LoadingModule/index"
-import { toast } from "react-toastify"
 
 const ImagesSection = ({images:{data}}) => {
   return (
@@ -16,7 +15,7 @@ const ImagesSection = ({images:{data}}) => {
         }
      
         </div>
-     <ImagesMenu/>
+     <ImagesNav/>
     </div>
   )
 }

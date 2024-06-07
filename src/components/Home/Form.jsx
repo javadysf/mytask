@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom"
-import CoffeLogo from "../../../assets/img/coffeelogo.png"
-import { MyButton } from "../MyButton/MyButton"
+import CoffeLogo from "../../assets/img/coffeelogo.png"
+import { MyButton } from "../common/MyButton/MyButton"
 const DetailsForm = () => {
   return (
     <div className="bg-slate-50 max-sm:bg-purple-900 max-sm:w-screen max-sm:p-1 max-sm:justify-end place-content-between w-[450px] h-screen rounded-xl p-20 pt-40 flex flex-col gap-4 ">

@@ -16,6 +16,7 @@ const AuthForm = ({
   linktitle,
   actionname,
   authFunc,
+  //pass auth items to modulebody
   moduleBody,
 }) => {
   const [value, setValue] = useState({ username: "", password: "" });
@@ -47,8 +48,7 @@ const AuthForm = ({
           type={showPassword ? "text" : "password"}
           showPassword={showPassword}
           setShowPassword={setShowPassword}
-        />
-
+        /> 
         {moduleBody}
       </div>
       <div className="flex flex-col items-center gap-2">

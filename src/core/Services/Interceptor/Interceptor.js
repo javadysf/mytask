@@ -2,6 +2,7 @@ import axios from "axios";
 
 const baseurl = import.meta.env.VITE_BASE_URL;
 const instance = axios.create({
+  // every request should have base URL!
   baseURL: baseurl,
 });
 

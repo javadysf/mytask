@@ -5,7 +5,8 @@ import { setItem } from "../../core/Services/common/storage.services";
 import BodyItems from "./BodyItems";
 import { toast } from "react-toastify";
 
-const LoginModule = () => {
+const LoginModule = ({setIsLoggedIn}) => {
+  
   const navigate = useNavigate();
   const loginFunction = async (values) => {
     if (values.username == "" || values.password == "") {
@@ -14,6 +15,7 @@ const LoginModule = () => {
       const res = await LoginApi(values);
       if (res.status == "200") {
         setItem("token", res.data);
+        setIsLoggedIn(true)
         toast.success("wellcome..!");
         navigate("/images");
       }

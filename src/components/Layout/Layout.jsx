@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import LayoutLogo from "../../assets/img/Vector.png";
 const Layout = () => {
   return (

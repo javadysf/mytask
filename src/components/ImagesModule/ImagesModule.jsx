@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react"
-import Header from "../common/Header/Header"
+import Header from "./Header"
 import ImagesSection from "./ImagesSection"
 import { getUserItems } from "../../core/Services/Api/userItems"
 
-const ImagesModule = () => {
+const ImagesModule = ({setIsLoggedIn}) => {
+
   const [images,setImages] = useState([])
   const userItems=async()=>{
     const res = await getUserItems();
@@ -11,12 +12,12 @@ const ImagesModule = () => {
     setImages({data})
   }
   useEffect(()=>{
+  //load user imagePage items
 userItems();
   },[])
-  console.log(images.data);
   return (
     <div >
-        <Header/>
+        <Header setIsLoggedIn={setIsLoggedIn}/>
         <ImagesSection images={images} />
     </div>
   )
